@@ -3,6 +3,7 @@ export const navItems = [
   { label: "Doggy Day Care", href: "/doggy-day-care" },
   { label: "Obedience", href: "/obedience-training" },
   { label: "Gundog", href: "/gundog-training" },
+  { label: "Timetable", href: "/timetable" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "Gallery", href: "/gallery" },
   { label: "FAQ", href: "/faq" },
