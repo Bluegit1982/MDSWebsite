@@ -10,6 +10,11 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#E5DCCB] bg-[#F7F2EA]/95 backdrop-blur-sm">
+      <div role="status" className="border-b-2 border-[#7F1D1D] bg-[#FCA5A5] text-[#450A0A]">
+        <div className="mx-auto max-w-7xl px-4 py-2 text-center text-sm font-black uppercase tracking-wide sm:px-6 lg:px-8">
+          Demo website only - this is not the official Mellor Dog School website
+        </div>
+      </div>
       {showHeatAlert ? (
         <div role="alert" className="border-b-2 border-[#B45309] bg-[#FFD43B] text-[#422006]">
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
