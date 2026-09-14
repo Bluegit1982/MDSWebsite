@@ -28,28 +28,24 @@ export function ContactForm() {
     setSubmitState("idle");
     setServerMessage("");
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
+    const subject = encodeURIComponent(`Enquiry from ${values.name}`);
+    const body = encodeURIComponent(
+      [
+        `Name: ${values.name}`,
+        `Email: ${values.email}`,
+        `Phone: ${values.phone}`,
+        `Service: ${values.service}`,
+        `Dog name: ${values.dogName || "Not provided"}`,
+        `Location: ${values.location || "Not provided"}`,
+        "",
+        values.message,
+      ].join("\n")
+    );
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        setSubmitState("error");
-        setServerMessage(data.error || "Something went wrong. Please try again.");
-        return;
-      }
-
-      reset();
-      setSubmitState("success");
-      setServerMessage("Thanks for your enquiry. We’ll be in touch shortly.");
-    } catch {
-      setSubmitState("error");
-      setServerMessage("There was a problem sending your enquiry. Please try again.");
-    }
+    window.open(`mailto:hello@mellordogschool.co.uk?subject=${subject}&body=${body}`, "_self");
+    reset();
+    setSubmitState("success");
+    setServerMessage("Your email app is opening with the enquiry ready to send.");
   };
 
   const inputClassName =
